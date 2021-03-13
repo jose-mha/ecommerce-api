@@ -6,10 +6,21 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+use App\User;
 use App\Product;
+use Laravel\Sanctum\Sanctum;
 
 class ProductControllerTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Sanctum::actingAs(
+            factory(User::class)->create()
+        );
+    }
+
     public function test_index()
     {
         factory(Product::class, 5)->create();
