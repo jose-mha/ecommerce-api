@@ -2,6 +2,7 @@
 
 use App\Category;
 use App\Product;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -14,6 +15,6 @@ class ProductSeeder extends Seeder
     public function run()
     {
         factory(Product::class, 10)->create();
-        factory(Category::class, 10)->create();
+        factory(User::class, 10)->create();
     }
 }
