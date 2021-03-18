@@ -2,10 +2,12 @@
 
 namespace App;
 
+use App\Utils\CanBeRated;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use CanBeRated;
     //Para que se puedan crear productos con culquier atributo.
     protected $guarded = [];
 
