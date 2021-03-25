@@ -36,3 +36,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('products/{product}/rate', 'ProductRatingController@rate');
     Route::post('products/{product}/unrate', 'ProductRatingController@unrate');
 });
+
+Route::get('/server-error', function () {
+    abort(500, 'Error 500');
+});
