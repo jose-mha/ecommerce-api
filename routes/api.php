@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductRatingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,10 @@ Route::post('/newsletter', 'NewsletterController@send');
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('products/{product}/rate', 'ProductRatingController@rate');
     Route::post('products/{product}/unrate', 'ProductRatingController@unrate');
+
+    Route::post('rating/{rating}/approve', [ProductRatingController::class, 'approve']);
+
+    Route::get('rating', [ProductRatingController::class, 'list']);
 });
 
 Route::get('/server-error', function () {
